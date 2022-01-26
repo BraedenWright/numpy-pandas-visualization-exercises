@@ -1,5 +1,6 @@
 ## Using Numpy
 
+from statistics import stdev
 import numpy as np
 
 a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
@@ -273,35 +274,66 @@ c = np.array([
 # HINT, you'll first need to make sure that the "c" variable is a numpy array prior to using numpy array methods.
 # Exercise 1 - Find the min, max, sum, and product of c.
 
-## Answer:
+np.min(c)
+# = 1
+np.max(c)
+# = 9
+np.sum(c)
+# = 45
+np.prod(c)
+# = 362,880
+
+## Answer: ^^
 
 # Exercise 2 - Determine the standard deviation of c.
 
-## Answer:
+np.std(c)
+
+## Answer: 2.581988897471611
 
 # Exercise 3 - Determine the variance of c.
 
-## Answer:
+np.var(c)
+
+## Answer: 6.666 repeating
 
 # Exercise 4 - Print out the shape of the array c
 
-## Answer:
+np.shape(c)
+
+## Answer: (3, 3)
 
 # Exercise 5 - Transpose c and print out transposed result.
 
-## Answer:
+np.transpose(c)
+
+            [[1, 4, 7],
+             [2, 5, 8],
+             [3, 6, 9]]
+
+## Answer:    ^^^^^
 
 # Exercise 6 - Get the dot product of the array c with c. 
 
-## Answer:
+np.dot(c, c)
+
+            [[ 30,  36,  42],
+             [ 66,  81,  96],
+             [102, 126, 150]]
+
+## Answer:        ^^^^
 
 # Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
 
-## Answer:
+np.sum(c * (np.transpose(c)))
+
+## Answer:  261
 
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
 
-## Answer:
+np.prod(c * (np.transpose(c)))
+
+## Answer: 131681894400
 
 ## Setup 4
 d = [
@@ -310,42 +342,106 @@ d = [
     [60, 45, -45, 90, -45, 180]
 ]
 
+d = np.array([
+    [90, 30, 45, 0, 120, 180],
+    [45, -90, -30, 270, 90, 0],
+    [60, 45, -45, 90, -45, 180]
+])
+
 # Exercise 1 - Find the sine of all the numbers in d
 
-## Answer:
+np.sin(d)
+
+[[ 0.89399666, -0.98803162,  0.85090352,  0.        ,  0.58061118,
+        -0.80115264],
+       [ 0.85090352, -0.89399666,  0.98803162, -0.17604595,  0.89399666,
+         0.        ],
+       [-0.30481062,  0.85090352, -0.85090352,  0.89399666, -0.85090352,
+        -0.80115264]]
+
+## Answer:  ^^^
 
 # Exercise 2 - Find the cosine of all the numbers in d
 
-## Answer:
+np.cos(d)
+
+[[-0.44807362,  0.15425145,  0.52532199,  1.        ,  0.81418097,
+        -0.59846007],
+       [ 0.52532199, -0.44807362,  0.15425145,  0.98438195, -0.44807362,
+         1.        ],
+       [-0.95241298,  0.52532199,  0.52532199, -0.44807362,  0.52532199,
+        -0.59846007]]
+
+## Answer:  ^^^
 
 # Exercise 3 - Find the tangent of all the numbers in d
 
-## Answer:
+np.tan(d)
+
+[[-1.99520041, -6.4053312 ,  1.61977519,  0.        ,  0.71312301,
+         1.33869021],
+       [ 1.61977519,  1.99520041,  6.4053312 , -0.17883906, -1.99520041,
+         0.        ],
+       [ 0.32004039,  1.61977519, -1.61977519, -1.99520041, -1.61977519,
+         1.33869021]]
+
+## Answer:   ^^^
 
 # Exercise 4 - Find all the negative numbers in d
 
-## Answer:
+d[d < 0]
+
+## Answer: [-90, -30, -45, -45]
 
 # Exercise 5 - Find all the positive numbers in d
 
-## Answer:
+d[d > 0]
+
+## Answer: [ 90,  30,  45, 120, 180,  45, 270,  90,  60,  45,  90, 180]
 
 # Exercise 6 - Return an array of only the unique numbers in d.
 
-## Answer:
+unique_in_d = np.unique(d)
+
+## Answer:  [-90, -45, -30,   0,  30,  45,  60,  90, 120, 180, 270]
 
 # Exercise 7 - Determine how many unique numbers there are in d.
 
-## Answer:
+len(unique_in_d)
+
+## Answer: 11
 
 # Exercise 8 - Print out the shape of d.
 
-## Answer:
+np.shape(d)
+
+## Answer: (3, 6)
 
 # Exercise 9 - Transpose and then print out the shape of d.
 
-## Answer:
+np.transpose(d)
+
+            [[ 90,  45,  60],
+             [ 30, -90,  45],
+             [ 45, -30, -45],
+             [  0, 270,  90],
+             [120,  90, -45],
+             [180,   0, 180]]
+
+## Answer:        ^^^^^
 
 # Exercise 10 - Reshape d into an array of 9 x 2
 
+d.reshape(9, 2)
+
 ## Answer:
+
+[ 90,  30],
+       [ 45,   0],
+       [120, 180],
+       [ 45, -90],
+       [-30, 270],
+       [ 90,   0],
+       [ 60,  45],
+       [-45,  90],
+       [-45, 180]]
